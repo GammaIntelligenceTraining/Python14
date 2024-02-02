@@ -24,8 +24,8 @@
 # add_person('Sarah')
 #
 # print(people)
-
-
+#
+#
 # odds = []
 # evens = []
 #
@@ -40,7 +40,7 @@
 #
 # print(odds)
 # print(evens)
-
+#
 # def sort_numbers(num):
 #     if num % 2 == 0:
 #         return 'EVEN'
@@ -52,7 +52,7 @@
 #
 #
 # print(sum_three_or_two(10, 20))
-
+#
 # def say_hello(name=None, surname=None):
 #     if name and surname:
 #         print(f'Hello {name} {surname}!')
@@ -65,24 +65,50 @@
 #
 # say_hello(surname='Kutselepa', name='Roman')
 
-# def many_arguments(a, b, c=100, *args, **kwargs):
-#     # print(args)
-#     for arg in args:
-#         print(arg)
-#     print(kwargs)
-#
-# many_arguments(10, 20, 1, 'asd', [1,2,3], 123, 0.231, name='Jack', surname='Smith')
+def many_arguments(a, b, c=100, *args, **kwargs):
+    print(args)
+    # for arg in args:
+    #     print(arg)
+    print(kwargs)
 
+many_arguments(10, 20, 1, 'asd', [1,2,3], 123, 0.231, name='Jack', surname='Smith')
+#
 # x = [1, 2, 3]
 # y = [0, *x, 4, 5, 6]
 # print(y)
+#
+#
+# a, b, c = 10, 20, 30
+# def tester():
+#     global a, b
+#     a = 1
+#     b = 2
+#
+# tester()
+# print(a, b, c)
+
+# import my_functions
+# print(my_functions.double(10))
+# print(my_functions.triple(20))
+# print(my_functions.name)
+
+# name = 'Simon'
+# from my_functions import triple, name
+# print(triple(10))
+# print(name)
+
+def wrapper(func):
+    print('Start')
+    func()
+    print('End')
 
 
-a, b, c = 10, 20, 30
-def tester():
-    global a, b
-    a = 1
-    b = 2
+def say_hello():
+    print('Hello world!')
 
-tester()
-print(a, b, c)
+wrapper(say_hello)
+print(say_hello)
+
+x = say_hello
+
+x()
