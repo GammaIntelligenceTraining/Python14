@@ -11,3 +11,40 @@ order = {
     'medium': {'height': 70, 'width': 90, 'qty': 54},
     'large': {'height': 90, 'width': 120, 'qty': 15},
 }
+
+def area(a, b):
+    return a * b
+
+
+def perimeter(a, b):
+    return (a + b) / 2
+
+
+def material_counter(amount, material_amount):
+    return material_amount * amount
+
+
+def single_size(unit):
+    result = {
+        'total_area': material_counter(unit['qty'], area(unit['height'], unit['width'])),
+        'total_perimeter': material_counter(unit['qty'], perimeter(unit['height'], unit['width'])),
+    }
+    return result
+
+
+def total_material(order):
+    result = {
+        'total_carpet_material': 0,
+        'total_edge_material': 0
+    }
+    for unit in order:
+        unit_size = single_size(order[unit])
+        result['total_edge_material'] += unit_size['total_perimeter']
+        result['total_carpet_material'] += unit_size['total_area']
+    return result
+
+
+print(total_material(order))
+print('Small', single_size(order['small']))
+print('Medium', single_size(order['medium']))
+print('Large', single_size(order['large']))
