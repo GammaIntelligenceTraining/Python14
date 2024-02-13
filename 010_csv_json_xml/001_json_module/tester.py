@@ -1,54 +1,50 @@
 import json
-# json_string = '''
-# {
+# json_data = """{
 #   "people": [
 #     {
 #       "name": "Jack Sumers",
 #       "phone": "555-555-555",
 #       "emails": ["jack.sumers@example.com", "jacksumers@work-place.com"],
-#       "has_licence": false
+#       "has_licence": false,
+#       "salary": 1500
 #     },
 #     {
 #       "name": "Mary Smith",
 #       "phone": "777-777-777",
 #       "emails": null,
-#       "has_licence": true
+#       "has_licence": true,
+#       "salary": 1700
+#     },
+#     {
+#       "name": "Steven Cooke",
+#       "phone": null,
+#       "emails": "stevencooke@example.com",
+#       "has_licence": true,
+#       "salary": 2500
 #     }
 #   ]
-# }'''
-# data = json.loads(json_string)
-#
-# # print(type(data))
-# # print(data['people'])
-# #
-# # for person in data['people']:
-# #     print(person['name'], person['phone'])
-#
-# data['people'].append({
-#         'name': 'Robert Brown',
-#         'phone': '222-555-5555',
-#         'emails': 'robert@example.com',
-#         'has_licence': True
-#     })
+# }"""
+# data = json.loads(json_data)
 # print(data)
 # print(type(data))
+# print(data['people'][0]['emails'])
 #
-# new_json = json.dumps(data, indent=2)
-# print(new_json)
-# print(type(new_json))
+# json_str = json.dumps(data, indent=2)
+# print(json_str)
+# print(type(json_str))
 
-with open('sample2.json', 'r') as file:
+with open('sample2.json', 'r', encoding='utf8') as file:
     data = json.load(file)
-    print(data)
-    print(type(data))
 
-data['people'].append({
-        'name': 'Robert Brown',
-        'phone': '222-555-5555',
-        'emails': 'robert@example.com',
-        'has_licence': True
-    })
 
-with open('sample2_edited.json', 'w') as file:
+for person in data['people']:
+    if person['has_licence'] == False:
+        data['people'].remove(person)
+
+
+with open('sample2_copy.json', 'a', encoding='utf8') as file:
     json.dump(data, file, indent=2)
 
+
+with open('data.json', 'r', encoding='utf') as file:
+    json.load(file)
