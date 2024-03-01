@@ -31,9 +31,9 @@ example.net
 pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')  # Grouped pattern
 
 
-# # # Subbed pattern #
-# subbed_urls = pattern.sub(r'\2\3', urls)
-# print(subbed_urls)
+# # Subbed pattern #
+subbed_urls = pattern.sub(r'\2\3', urls)
+print(subbed_urls)
 
 
 matches = pattern.finditer(urls)
