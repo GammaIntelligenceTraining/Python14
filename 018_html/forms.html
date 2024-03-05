@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forms</title>
+    <style>
+        #user-name {
+            background-color: khaki;
+        }
+        .input-field {
+            color: blue;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <form method="get">
+        <label for="user-name">User name:</label>
+        <input type="text" id="user-name" class="input-field user-name-field" name="user-name"><br>
+        <label for="user-pass">User password:</label>
+        <input type="password" id="user-pass" class="input-field" name="user-pass"><br>
+        HTML<input type="radio" name="prog_lang" value="html"><br>
+        CSS<input type="radio" name="prog_lang" value="css"><br>
+        Python<input type="radio" name="prog_lang" value="python"><br>
+        News<input type="checkbox" name="newsletter" value="False"><br>
+        <select name="cars" id="cars">
+            <optgroup label="German cars">
+                <option value="bmw">BMW</option>
+                <option value="mb">Mercedes-Benz</option>
+                <option value="audi">Audi</option>
+            </optgroup>
+            <optgroup label="German cars">
+                <option value="bmw">BMW</option>
+                <option value="mb">Mercedes-Benz</option>
+                <option value="audi">Audi</option>
+            </optgroup>
+        </select><br>
+        <textarea name="" id="" cols="10" rows="10"></textarea><br>
+        <input type="range" name="limit"><br>
+
+        <input type="submit">
+    </form>
+</body>
+</html>
