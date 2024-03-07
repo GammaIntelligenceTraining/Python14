@@ -11,3 +11,21 @@ import pandas as pd
 '''
 
 # https://tproger.ru/digest/data-science-python/#1
+
+data = pd.read_csv('csv_files/survey_results_public.csv')
+
+# print(data['Hobbyist'].value_counts())
+# print(data.groupby('Hobbyist').count()['Respondent'])
+#
+
+# print('Max', data['Age'].max())
+# print('Mean', data['Age'].mean())
+# print('Min', data['Age'].min())
+
+#
+# print(data['Country'].value_counts(ascending=False))
+# print(data.groupby('Country').count().sort_values('Respondent', ascending=False)['Respondent'])
+
+
+print(data['CurrencyDesc'].value_counts(ascending=True))
+print(data.groupby('CurrencyDesc').count().sort_values('Respondent')['Respondent'])
