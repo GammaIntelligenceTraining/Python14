@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Create a post{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="#" method="post">
+        <div class="mb-3">
+          <label for="post-title" class="form-label">Post title</label>
+          <input type="text" class="form-control" id="post-title" name="post-title">
+        </div>
+        <div class="mb-3">
+          <label for="post-content" class="form-label">Post content</label>
+            <textarea name="post-content" class="form-control" id="post-content" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send post</button>
+    </form>
+</div>
+{% endblock %}
