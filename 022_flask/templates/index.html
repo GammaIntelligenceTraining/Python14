@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>We learn Flask today</title>
+</head>
+<body>
+    <h1>Hello {{ username | upper }}!</h1>
+    {% if content %}
+        <p>{{ content.a }}</p>
+        {% for num in content.b %}
+            <h1>{{ num ** 2 }}</h1>
+        {% endfor %}
+        {% for num in range(10) %}
+            <h1>{{ num ** 3 }}</h1>
+        {% endfor %}
+    {% else %}
+        <p>Nothing to show...</p>
+    {% endif %}
+</body>
+</html>
