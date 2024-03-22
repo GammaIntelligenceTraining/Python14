@@ -132,6 +132,24 @@ def post():
         return redirect(url_for('login'))
 
 
+@app.route('/my_posts/')
+def my_posts():
+    if 'login' in session:
+        posts = Post.query.filter_by(owner=session['login']).order_by(desc('date_added'))
+        return render_template('my_posts.html', posts=posts)
+    else:
+        flash('You are not logged in', 'warning')
+        return redirect(url_for('login'))
+
+
+@app.route('/delete_post/<post_id>')
+def delete_post(post_id):
+    Post.query.filter_by(_id=post_id).delete()
+    db.session.commit()
+    flash('Post was deleted', 'info')
+    return redirect(url_for('my_posts'))
+
+
 @app.route('/admin/')
 def admin():
     return redirect(url_for('user', name='Admin'))
